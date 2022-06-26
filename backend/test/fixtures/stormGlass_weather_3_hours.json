@@ -1,0 +1,97 @@
+{
+  "hours": [
+    {
+      "swellDirection": {
+        "noaa": 180.16
+      },
+      "swellHeight": {
+        "noaa": 0.23
+      },
+      "swellPeriod": {
+        "noaa": 8.06
+      },
+      "time": "2022-06-26T00:00:00+00:00",
+      "waveDirection": {
+        "noaa": 99.43
+      },
+      "waveHeight": {
+        "noaa": 0.61
+      },
+      "windDirection": {
+        "noaa": 285.1
+      },
+      "windSpeed": {
+        "noaa": 5.97
+      }
+    },
+    {
+      "swellDirection": {
+        "noaa": 180.42
+      },
+      "swellHeight": {
+        "noaa": 0.23
+      },
+      "swellPeriod": {
+        "noaa": 7.98
+      },
+      "time": "2022-06-26T01:00:00+00:00",
+      "waveDirection": {
+        "noaa": 98.37
+      },
+      "waveHeight": {
+        "noaa": 0.59
+      },
+      "windDirection": {
+        "noaa": 278.14
+      },
+      "windSpeed": {
+        "noaa": 5.27
+      }
+    },
+    {
+      "swellDirection": {
+        "noaa": 180.68
+      },
+      "swellHeight": {
+        "noaa": 0.24
+      },
+      "swellPeriod": {
+        "noaa": 7.9
+      },
+      "time": "2022-06-26T02:00:00+00:00",
+      "waveDirection": {
+        "noaa": 97.3
+      },
+      "waveHeight": {
+        "noaa": 0.58
+      },
+      "windDirection": {
+        "noaa": 271.17
+      },
+      "windSpeed": {
+        "noaa": 4.57
+      }
+    }
+  ],
+  "meta": {
+    "cost": 1,
+    "dailyQuota": 10,
+    "end": "2022-07-06 00:00",
+    "lat": -33.792726,
+    "lng": 151.289824,
+    "params": [
+      "swellDirection",
+      "swellHeight",
+      "swellPeriod",
+      "waveDirection",
+      "waveHeight",
+      "windDirection",
+      "windSpeed"
+    ],
+    "requestCount": 3,
+    "source": [
+      "noaa"
+    ],
+    "start": "2022-06-26 00:00"
+  }
+}
