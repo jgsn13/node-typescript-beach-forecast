@@ -1,7 +1,7 @@
-import "./util/module-alias";
-import express, { Application } from "express";
-import { ForecastController } from "./controllers/forecast";
-import { attachControllers } from "@decorators/express";
+import './util/module-alias';
+import express, { Application } from 'express';
+import { ForecastController } from './controllers/forecast';
+import { attachControllers } from '@decorators/express';
 
 export class Server {
   public app = express();
@@ -11,7 +11,9 @@ export class Server {
   public init(): void {
     this.setupExpress();
     this.setupControllers();
-    this.app.listen(this.port, () => console.log(`Server started at port ${this.port}!`))
+    this.app.listen(this.port, () =>
+      console.log(`Server started at port ${this.port}!`)
+    );
   }
 
   private setupExpress(): void {
