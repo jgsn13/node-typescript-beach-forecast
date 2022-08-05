@@ -6,6 +6,8 @@ export interface RequestConfig extends AxiosRequestConfig {}
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export interface Response<T = any> extends AxiosResponse<T> {}
 
+export type RequestError = Pick<AxiosResponse, 'data' | 'status'>;
+
 export class Request {
   constructor(private request = axios) {}
 
@@ -19,9 +21,7 @@ export class Request {
     );
   }
 
-  public static extractErrorData(
-    error: unknown
-  ): Pick<AxiosResponse, 'data' | 'status'> {
+  public static extractErrorData(error: unknown): RequestError {
     const axiosError = error as AxiosError;
     if (axiosError.response && axiosError.response.status) {
       return {
