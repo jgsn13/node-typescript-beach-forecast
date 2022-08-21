@@ -1,7 +1,6 @@
 import { InternalError } from '@src/util/errors/internal-error';
 import config, { IConfig } from 'config';
 import * as HTTPUtil from '@src/util/request';
-import { AxiosError } from 'axios';
 
 export interface StormGlassPointSource {
   [key: string]: number;
@@ -75,13 +74,10 @@ export class StormGlass {
       );
       return this.normalizeResponse(response.data);
     } catch (err) {
-      if (HTTPUtil.Request.isRequestError(err as Error)) {
-        // const error = HTTPUtil.Request.extractErrorData(err);
-        const error = err as AxiosError;
+      if (err instanceof Error && HTTPUtil.Request.isRequestError(err)) {
+        const error = HTTPUtil.Request.extractErrorData(err);
         throw new StormGlassResponseError(
-          `Error: ${JSON.stringify(error.response?.data)} Code: ${
-            error.response?.status
-          }`
+          `Error: ${JSON.stringify(error.data)} Code: ${error.status}`
         );
       }
       throw new ClientRequestError((err as Error).message);

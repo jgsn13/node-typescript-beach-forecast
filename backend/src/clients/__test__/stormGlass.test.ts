@@ -64,14 +64,24 @@ describe('StormGlass client', () => {
     const lat = -33.792726;
     const lng = 151.289824;
 
+    class FakeAxiosError extends Error {
+      constructor(public response: object) {
+        super();
+      }
+    }
+
+    const errorData = {
+      status: 429,
+      data: { errors: ['Rate Limit reached'] },
+    }
+
+    mockedRequest.get.mockRejectedValue(
+      new FakeAxiosError(errorData)
+    );
+
     MockedRequestClass.isRequestError.mockReturnValue(true);
 
-    mockedRequest.get.mockRejectedValue({
-      response: {
-        status: 429,
-        data: { errors: ['Rate Limit reached'] },
-      },
-    });
+    MockedRequestClass.extractErrorData.mockReturnValue(errorData);
 
     const stormGlass = new StormGlass(mockedRequest);
 
